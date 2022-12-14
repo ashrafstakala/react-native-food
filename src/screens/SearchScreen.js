@@ -22,7 +22,7 @@ const SearchScreen = () => {
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text style={styles.text}>We have found {results.length} results</Text>
+
       <ScrollView>
         <ResultsList
           results={filterResultsByPrice('$')}
@@ -38,12 +38,6 @@ const SearchScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  text: {
-    marginLeft: 15,
-    marginTop: 10,
-    marginBottom: 10,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default SearchScreen;
