@@ -15,14 +15,14 @@ const SearchScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>We have found {results.length} results</Text>
+      <Text style={styles.text}>We have found {results.length} results</Text>
       <ScrollView>
         <ResultsList
           results={filterResultsByPrice('$')}
@@ -34,10 +34,16 @@ const SearchScreen = () => {
           title="Big Spender"
         />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    marginLeft: 15,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+});
 
 export default SearchScreen;
