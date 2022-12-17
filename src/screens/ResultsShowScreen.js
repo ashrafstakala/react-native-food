@@ -17,15 +17,19 @@ const ResultsShowScreen = ({ navigation }) => {
   if (!result) {
     return null;
   }
-
+  console.log(result);
   return (
     <View>
-      <Text>{result.name}</Text>
+      <Text style={styles.title}>{result.name}</Text>
       <FlatList
         data={result.photos}
         keyExtractor={(photo) => photo}
-        renderItem={(item) => {
-          return <Image style={styles.image} source={{ uri: item }} />;
+        renderItem={({ item }) => {
+          return (
+            <>
+              <Image style={styles.image} source={{ uri: item }} />
+            </>
+          );
         }}
       />
     </View>
@@ -36,6 +40,14 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: 300,
+    alignSelf: 'center',
+    marginTop: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    marginTop: 10,
+    fontSize: 16,
+    alignSelf: 'center',
   },
 });
 
